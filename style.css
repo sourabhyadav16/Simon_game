@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Inter', sans-serif;
+    color: #e0e0e0;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 2.5rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.btn-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+    height: 160px;
+    width: 160px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.yellow {
+    background: linear-gradient(135deg, #ffd60a, #ff9500);
+}
+
+.red {
+    background: linear-gradient(135deg, #f72585, #c9184a);
+}
+
+.purple {
+    background: linear-gradient(135deg, #7209b7, #3f37c9);
+}
+
+.green {
+    background: linear-gradient(135deg, #38d39f, #0abde3);
+}
+
+.flash {
+    background: #ffffff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+    transform: scale(1.08);
+    animation: flashGlow 0.3s ease-in-out;
+}
+
+@keyframes flashGlow {
+    0% { box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.9); }
+    100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.9); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
